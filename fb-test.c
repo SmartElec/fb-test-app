@@ -105,16 +105,16 @@ static void fill_screen(struct fb_info *fb_info)
 				draw_pixel(fb_info, x, y, 0xff);
 			else if (y < 20 && (x > 20 && x < w - 20))
 				draw_pixel(fb_info, x, y, 0xff00);
-			else if (x > w - 20 && (y > 20 && y < h - 20))
+			else if (x > w - 20 - 1  && (y > 20 && y < h - 20))
 				draw_pixel(fb_info, x, y, 0xff0000);
-			else if (y > h - 20 && (x > 20 && x < w - 20))
+			else if (y > h - 20 - 1  && (x > 20 && x < w - 20))
 				draw_pixel(fb_info, x, y, 0xffff00);
-			else if (x == 20 || x == w - 20 ||
-					y == 20 || y == h - 20)
+			else if (x == 20 || x == w - 20 - 1  ||
+					y == 20 || y == h - 20 - 1 )
 				draw_pixel(fb_info, x, y, 0xffffff);
 			else if (x == y || w - x == h - y)
 				draw_pixel(fb_info, x, y, 0xff00ff);
-			else if (w - x == y || x == h - y)
+			else if (w - x - 1  == y || x == h - y - 1 )
 				draw_pixel(fb_info, x, y, 0x00ffff);
 			else if (x > 20 && y > 20 && x < w - 20 && y < h - 20) {
 				int t = x * 3 / w;
